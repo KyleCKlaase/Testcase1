@@ -1,7 +1,9 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.lang3.text.translate.NumericEntityUnescaper;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pages.*;
 
 import java.time.Duration;
@@ -18,9 +20,11 @@ public class TestCase {
     @BeforeEach
     public void setUp(){
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get("https://demowebshop.tricentis.com/");
 
         homePage = new HomePage(driver);
