@@ -1,0 +1,5 @@
+pages\ViewCart.class
+pages\CartAdd.class
+pages\LoginPage.class
+pages\RemoveItem.class
+pages\HomePage.class
