@@ -13,12 +13,12 @@ public class LoginPage {
 
     }
 
-    public void login(){
+    public void login(String email,String password){
         //add username and password
-        WebElement usernamefield = driver.findElement(By.id("Email"));
-        WebElement userpasswordfield = driver.findElement(By.id("Password"));
-        usernamefield.sendKeys("kylecalvinklaase@outlook.com");
-        userpasswordfield.sendKeys("Password123");
+        WebElement emailField = driver.findElement(By.id("Email"));
+        emailField.sendKeys(email);
+        WebElement passwordField = driver.findElement(By.id("Password"));
+        passwordField.sendKeys(password);
 
         //click login button
         WebElement loginBtn = driver.findElement(By.xpath("//input[@value='Log in']"));
